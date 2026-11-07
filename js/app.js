@@ -227,21 +227,39 @@
 
     // Swipe navigation
     let touchStartX = 0;
+    let touchStartY = 0;
     let touchEndX = 0;
+    let touchEndY = 0;
+    let isSwiping = false;
     
     el.slideshow.addEventListener('touchstart', e => {
       touchStartX = e.changedTouches[0].screenX;
-    });
+      touchStartY = e.changedTouches[0].screenY;
+      isSwiping = true;
+    }, { passive: true });
+    
+    el.slideshow.addEventListener('touchmove', e => {
+      if (!isSwiping) return;
+      touchEndX = e.changedTouches[0].screenX;
+      touchEndY = e.changedTouches[0].screenY;
+    }, { passive: true });
     
     el.slideshow.addEventListener('touchend', e => {
-      touchEndX = e.changedTouches[0].screenX;
+      if (!isSwiping) return;
+      isSwiping = false;
       handleSwipe();
-    });
+    }, { passive: true });
     
     function handleSwipe() {
-      const diff = touchStartX - touchEndX;
-      if (Math.abs(diff) > 50) {
-        if (diff > 0) navigate(1);
+      const diffX = touchStartX - touchEndX;
+      const diffY = Math.abs(touchStartY - touchEndY);
+      
+      // Игнорируем если свайп больше вертикальный чем горизонтальный
+      if (diffY > Math.abs(diffX)) return;
+      
+      // Минимальная дистанция свайпа 50px
+      if (Math.abs(diffX) > 50) {
+        if (diffX > 0) navigate(1);
         else navigate(-1);
       }
     }
@@ -379,12 +397,18 @@
     
     // Update progress
     document.querySelectorAll('.progress-segment').forEach((seg, i) => {
+      const span = seg.querySelector('span');
+      
       seg.classList.toggle('active', i === index);
       seg.classList.toggle('done', i < index);
+      
+      // Сбрасываем анимацию у всех
+      span.style.animation = 'none';
+      span.style.transform = i < index ? 'scaleX(1)' : 'scaleX(0)';
+      
+      // Запускаем анимацию только у текущего
       if (i === index) {
-        const span = seg.querySelector('span');
-        span.style.animation = 'none';
-        void span.offsetWidth;
+        void span.offsetWidth; // reflow
         span.style.animation = state.isAutoplay ? 'progress-fill 5.5s linear' : 'none';
       }
     });
@@ -445,6 +469,15 @@
     
     const trans = transitions[Math.floor(Math.random() * transitions.length)];
     goToScene(nextIndex, trans);
+    
+    // Возобновляем автоплей через 8 секунд
+    if (state.isAutoplay) {
+      setTimeout(() => {
+        if (Date.now() - state.lastManualAction >= 7500) {
+          startAutoplay();
+        }
+      }, 8000);
+    }
   }
 
   function togglePlayPause() {
