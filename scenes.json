@@ -4,9 +4,12 @@
   { "image": "photos/03.jpg", "hero": "BLACK PANTHER", "caption": "Тихий шаг. Невероятная сила.", "effect": "panther" },
   { "image": "photos/04.jpg", "hero": "AVENGERS", "caption": "Команда, которая всегда рядом", "effect": "ironman" },
   { "image": "photos/05.jpg", "hero": "THOR", "caption": "Достоин молота. Достоин легенды.", "effect": "thunder" },
-  { "image": "photos/08.jpg", "hero": "BLACK PANTHER", "caption": "Защищать друзей — вот настоящая сила", "effect": "hulk" },
+  { "image": "photos/06.jpg", "hero": "HULK", "caption": "Невероятная сила Миши", "effect": "hulk" },
   { "image": "photos/09.jpg", "hero": "DOCTOR STRANGE", "caption": "Для тебя открыты все вселенные", "effect": "magic" },
   { "image": "photos/10.jpg", "hero": "AVENGERS", "caption": "Вместе мы можем всё", "effect": "embers" },
-  { "image": "photos/07.jpg", "hero": "EXPLORER", "caption": "Каждый день — новое приключение", "effect": "ironman" },
-  { "image": "photos/06.jpg", "hero": "MISHA", "caption": "Самая большая суперсила — быть собой", "effect": "embers" }
+  { "image": "photos/11.jpg", "hero": "SPIDER-MAN", "caption": "С большой силой приходит большая ответственность", "effect": "ironman" },
+  { "image": "photos/12.jpg", "hero": "CAPTAIN AMERICA", "caption": "Я могу делать это весь день", "effect": "shield" },
+  { "image": "photos/13.jpg", "hero": "IRON MAN", "caption": "Иногда нужно бежать, прежде чем научишься ходить", "effect": "ironman" },
+  { "image": "photos/14.jpg", "hero": "THOR", "caption": "Я всё ещё достоин", "effect": "thunder" },
+  { "image": "photos/15.jpg", "hero": "MISHA", "caption": "Самая большая суперсила — быть собой", "effect": "embers" }
 ]
