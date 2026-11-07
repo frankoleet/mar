@@ -1,0 +1,12 @@
+[
+  { "image": "photos/01.jpg", "hero": "THOR", "caption": "Бог грома Миша", "effect": "thunder" },
+  { "image": "photos/02.jpg", "hero": "CAPTAIN AMERICA", "caption": "Смелость сильнее любого щита", "effect": "shield" },
+  { "image": "photos/03.jpg", "hero": "BLACK PANTHER", "caption": "Тихий шаг. Невероятная сила.", "effect": "panther" },
+  { "image": "photos/04.jpg", "hero": "AVENGERS", "caption": "Команда, которая всегда рядом", "effect": "ironman" },
+  { "image": "photos/05.jpg", "hero": "THOR", "caption": "Достоин молота. Достоин легенды.", "effect": "thunder" },
+  { "image": "photos/08.jpg", "hero": "BLACK PANTHER", "caption": "Защищать друзей — вот настоящая сила", "effect": "hulk" },
+  { "image": "photos/09.jpg", "hero": "DOCTOR STRANGE", "caption": "Для тебя открыты все вселенные", "effect": "magic" },
+  { "image": "photos/10.jpg", "hero": "AVENGERS", "caption": "Вместе мы можем всё", "effect": "embers" },
+  { "image": "photos/07.jpg", "hero": "EXPLORER", "caption": "Каждый день — новое приключение", "effect": "ironman" },
+  { "image": "photos/06.jpg", "hero": "MISHA", "caption": "Самая большая суперсила — быть собой", "effect": "embers" }
+]

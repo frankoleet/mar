@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#090a0d">
+  <meta name="description" content="Миша, это твоя история. Новая миссия, знакомые герои и одна настоящая суперсила — быть собой.">
+  <title>МИША — история настоящего героя</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/Oswald.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/effects.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body class="booting">
+  <svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="m8 5 11 7-11 7Z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14" stroke-width="3"/></symbol>
+    <symbol id="i-sound" viewBox="0 0 24 24"><path d="M11 5 6 9H3v6h3l5 4ZM15 8a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14"/></symbol>
+    <symbol id="i-muted" viewBox="0 0 24 24"><path d="M11 5 6 9H3v6h3l5 4ZM16 9l6 6m0-6-6 6"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-replay" viewBox="0 0 24 24"><path d="M4 10a8 8 0 1 1 1 8M4 4v6h6"/></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24"><path d="M12 15V3m-5 5 5-5 5 5M5 13v7h14v-7"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="m14 2-9 12h7l-2 8 9-13h-7Z"/></symbol>
+  </defs></svg>
+
+  <header class="masthead" id="masthead">
+    <a class="identity" href="./" aria-label="Вселенная Миши — в начало"><span class="monogram">М<span>★</span></span><span>ВСЕЛЕННАЯ<br><b>МИШИ</b></span></a>
+    <div class="header-center"><span class="status-dot"></span> ЛИЧНОЕ ДЕЛО ГЕРОЯ <span class="header-code">№ 001</span></div>
+    <button class="sound-control" id="mute" type="button" aria-label="Выключить звук" aria-pressed="false"><svg class="icon"><use href="#i-sound"/></svg><span id="sound-label">ЗВУК ВКЛЮЧЁН</span></button>
+  </header>
+
+  <main>
+    <section id="intro" class="screen intro" aria-label="Начало истории">
+      <div class="intro-grid" aria-hidden="true"></div>
+      <div class="intro-orbit" aria-hidden="true"></div>
+      <div class="collage" id="collage" aria-hidden="true"></div>
+      <div class="intro-content">
+        <p class="eyebrow"><span></span> ЭТА ИСТОРИЯ — О ТЕБЕ</p>
+        <h1 class="name-logo">МИША<span class="logo-shine"></span></h1>
+        <h2>НОВЫЙ ГЕРОЙ.<br>НОВАЯ МИССИЯ.</h2>
+        <p class="intro-description">Мир уже знает своих героев.<br>Пришло время узнать тебя.</p>
+        <button class="primary-button start-button" id="start" type="button" disabled><span class="play-disc"><svg class="icon"><use href="#i-play"/></svg></span><span id="start-label">ГОТОВИМ ТВОЮ ИСТОРИЮ</span><svg class="icon button-arrow"><use href="#i-arrow"/></svg></button>
+        <div class="loading" id="loading"><div class="loading-track"><span id="loading-fill"></span></div><div class="loading-label"><span id="loading-text">СОБИРАЕМ КОМАНДУ</span><span id="loading-percent">0%</span></div></div>
+        <p class="sound-hint"><svg class="icon"><use href="#i-sound"/></svg> В наушниках — как в кино</p>
+        <label class="file-picker" id="file-picker" hidden>Выбрать scenes.json<input id="scene-file" type="file" accept=".json,application/json"></label>
+      </div>
+      <div class="hero-stamp" aria-hidden="true"><span class="stamp-cross">+</span><span>СУПЕРСИЛА</span><b>БЫТЬ СОБОЙ.</b><i>100% НАСТОЯЩИЙ ГЕРОЙ</i></div>
+      <footer class="intro-footer"><div class="footer-chapter"><span class="red-line"></span><b>01</b><span>НАЧАЛО<br>БОЛЬШОЙ ИСТОРИИ</span></div><p>ОДИН МИР. МНОГО ГЕРОЕВ. <strong>ТВОЯ ИСТОРИЯ.</strong></p><span class="age-mark">6+</span></footer>
+    </section>
+
+    <section id="slideshow" class="screen slideshow" aria-label="Приключения Миши" hidden>
+      <div class="scene-background" id="scene-background" aria-hidden="true"></div>
+      <div class="scene-images" id="scene-images"></div>
+      <div class="scene-shade" aria-hidden="true"></div>
+      <div class="effect-decoration" id="effect-decoration" aria-hidden="true"><div class="energy-ring"></div><div class="mandala mandala-one"></div><div class="mandala mandala-two"></div><div class="hud-corner hud-tl"></div><div class="hud-corner hud-tr"></div><div class="hud-corner hud-bl"></div><div class="hud-corner hud-br"></div></div>
+      <div class="progress-segments" id="progress" role="group" aria-label="Выбрать сцену"></div>
+      <button class="edge-nav edge-prev" id="previous" aria-label="Предыдущая сцена"><svg class="icon"><use href="#i-arrow"/></svg></button>
+      <button class="edge-nav edge-next" id="next" aria-label="Следующая сцена"><svg class="icon"><use href="#i-arrow"/></svg></button>
+      <div class="scene-copy" id="scene-copy" aria-live="polite"><p class="eyebrow" id="scene-number"></p><h2 id="hero-name"></h2><p id="scene-caption"></p></div>
+      <div class="scene-bottom"><span class="swipe-hint">← <span>ЛИСТАЙ. ТВОЯ СИЛА — ВПЕРЕДИ.</span> →</span><button class="round-button" id="play-pause" aria-label="Приостановить показ"><svg class="icon"><use href="#i-pause"/></svg></button></div>
+    </section>
+
+    <section id="finale" class="screen finale" aria-label="Миша — настоящий герой" hidden>
+      <div class="finale-glow" aria-hidden="true"></div>
+      <div class="poster-grid" id="poster-grid" aria-hidden="true"></div>
+      <div class="finale-content"><p class="eyebrow"><span></span> МИССИЯ ВЫПОЛНЕНА</p><div class="finale-star" aria-hidden="true">★</div><h2>МИША —<br>НАСТОЯЩИЙ <span>ГЕРОЙ</span></h2><p class="finale-subtitle">Ты наш главный Мститель!</p><p class="finale-message">Для нас твоя суперсила — это ты.<br>Всегда. В любом мире.</p><div class="finale-actions"><button class="primary-button" id="restart"><svg class="icon"><use href="#i-replay"/></svg> СМОТРЕТЬ ЕЩЁ РАЗ</button><button class="secondary-button" id="share"><svg class="icon"><use href="#i-share"/></svg> ПОДЕЛИТЬСЯ</button></div><span class="end-credit">С ЛЮБОВЬЮ. СПЕЦИАЛЬНО ДЛЯ ТЕБЯ.</span></div>
+    </section>
+  </main>
+  <canvas id="effects" aria-hidden="true"></canvas>
+  <div class="transition-layer" id="transition" aria-hidden="true"></div>
+  <div class="comic-flip" id="comic-flip" aria-hidden="true"></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <dialog id="share-dialog"><h2>Твоя история рядом</h2><p>Скопируй ссылку и отправь её близким.</p><input id="share-link" readonly aria-label="Ссылка на сайт"><button class="primary-button" id="copy-link">СКОПИРОВАТЬ ССЫЛКУ</button><button class="secondary-button" id="close-share">ЗАКРЫТЬ</button></dialog>
+  <noscript><div class="noscript">Чтобы начать приключение, включи JavaScript в браузере.</div></noscript>
+</body>
+</html>
